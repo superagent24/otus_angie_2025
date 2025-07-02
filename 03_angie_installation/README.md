@@ -19,9 +19,15 @@ HDD: 30 GB
    `sudo curl -o /etc/apt/trusted.gpg.d/angie-signing.gpg \
             https://angie.software/keys/angie-signing.gpg`
    
-5. Подключение репозитория Angie:
+4. Подключение репозитория Angie:
    
-   ` echo "deb https://download.angie.software/angie/$(. /etc/os-release && echo "$ID/$VERSION_ID $VERSION_CODENAME") main" \
+   `echo "deb https://download.angie.software/angie/$(. /etc/os-release && echo "$ID/$VERSION_ID $VERSION_CODENAME") main" \
     | sudo tee /etc/apt/sources.list.d/angie.list > /dev/null`
 
-7. 
+5. Обновление индексов репозиториев:
+
+   `sudo apt update`
+
+7. Установка пакета Angie:
+
+   `sudo apt install -y angie`
