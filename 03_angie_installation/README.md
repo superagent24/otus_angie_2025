@@ -1,14 +1,14 @@
 # ДЗ № 3 // Варианты установки Angie
 
-На VMware ESXi развёрнута ВМ:
+На VMware ESXi развёрнута ВМ со следующими характеристиками:
 
-ОС: Debian 12.2.0
+ОС Debian 12.2.0
 
-vCPU: 2
+2 vCPU
 
-RAM: 4 GB
+4 GB RAM
 
-HDD: 30 GB
+30 GB HDD
 
 # Установка Angie
 
