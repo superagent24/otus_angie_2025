@@ -9,6 +9,6 @@ HDD: 30 GB
 
 Установка Angie
 
-1. `$ sudo apt update && sudo apt upgrade`
-2. `$ sudo apt-get install -y ca-certificates curl`
+1. $ `sudo apt update && sudo apt upgrade`
+2. $ `sudo apt-get install -y ca-certificates curl`
 3. 
