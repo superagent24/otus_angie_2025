@@ -1,4 +1,4 @@
-# Варианты установки Angie // ДЗ № 03
+# Варианты установки Angie // ДЗ № 3
 
 На VMware ESXi развёрнута ВМ:
 
@@ -6,3 +6,7 @@
 vCPU: 2
 RAM: 4 GB
 HDD: 30 GB
+
+Установка Angie
+
+1. `sudo apt update && sudo apt upgrade`
