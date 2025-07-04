@@ -185,17 +185,17 @@ server {
 
 </details>
 
-
-
 9. Проверка корректности конфигурации Angie и перезапуск Angie:
 
+   `sudo angie -t && sudo systemctl reload angie`
 
+10. Проверка корректности работы Angie:
 
+   `sudo systemctl status angie`
 
-
-
-
-
+<code style="color : aquamarine">text</code>● angie.service - Angie - high performance web server
+     Loaded: loaded (/lib/systemd/system/angie.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2025-06-25 14:31:18 MSK; 1 week 2 days ago
 
 
 
