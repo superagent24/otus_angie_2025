@@ -41,13 +41,13 @@ VMXNET 3 network adapter
 
    `sudo apt install -y angie-module-brotli angie-module-zstd angie-console-light`
 
-7. Редактирование файла настроек Angie /etc/angie/[angie.conf](https://github.com/superagent24/otus_angie_2025/blob/main/03_angie_installation/angie.conf)
+7. Редактирование файла настроек Angie:
 
    `sudo nano /etc/angie/angie.conf`
 
-<details>
+   <details>
 
-<summary>Содержимое /etc/angie/angie.conf</summary>
+   <summary>Содержимое /etc/angie/angie.conf</summary>
 
 ```
    user  angie;
@@ -99,7 +99,7 @@ http {
 #}
 ```
 
-</details>
+   </details>
 
 
 
