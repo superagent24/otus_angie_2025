@@ -193,11 +193,8 @@ server {
 
    `sudo systemctl status angie`
 
-<code style="color : aquamarine">text</code>● angie.service - Angie - high performance web server
-     Loaded: loaded (/lib/systemd/system/angie.service; enabled; preset: enabled)
-     Active: active (running) since Wed 2025-06-25 14:31:18 MSK; 1 week 2 days ago
+${\textsf{\color{lightgreen}●}}$ angie.service - Angie - high performance web server</br>
+     Loaded: loaded (/lib/systemd/system/angie.service; ${\textsf{\color{lightgreen}enabled}}$; preset: ${\textsf{\color{lightgreen}enabled}}$)</br>
+     Active: ${\textsf{\color{lightgreen}active (running)}}$ since Wed 2025-06-25 14:31:18 MSK; 1 week 2 days ago
 
-
-
-
-
+11. Проверка корректности работы Angie:
