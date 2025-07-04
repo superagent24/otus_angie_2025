@@ -42,7 +42,7 @@ VMXNET 3 network adapter
    `sudo apt install -y angie-module-brotli angie-module-zstd angie-console-light`
 
 
-
+jghjghjghjghjjj [angie.conf](https://github.com/superagent24/otus_angie_2025/blob/main/03_angie_installation/angie.conf)
 
 
 
