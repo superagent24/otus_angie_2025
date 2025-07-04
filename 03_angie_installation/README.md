@@ -45,9 +45,9 @@ VMXNET 3 network adapter
 
    `sudo nano /etc/angie/angie.conf`
 
-   <details>
+<details>
 
-   <summary>Содержимое /etc/angie/angie.conf</summary>
+<summary>Содержимое /etc/angie/angie.conf</summary>
 
 ```
    user  angie;
@@ -99,7 +99,7 @@ http {
 #}
 ```
 
-   </details>
+</details>
 
 
 
