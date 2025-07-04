@@ -41,12 +41,75 @@ VMXNET 3 network adapter
 
    `sudo apt install -y angie-module-brotli angie-module-zstd angie-console-light`
 
+7. Редактирование файла настроек Angie /etc/angie/[angie.conf](https://github.com/superagent24/otus_angie_2025/blob/main/03_angie_installation/angie.conf)
 
-jghjghjghjghjjj [angie.conf](https://github.com/superagent24/otus_angie_2025/blob/main/03_angie_installation/angie.conf)
+   `sudo nano /etc/angie/angie.conf`
+
+<details>
+
+<summary>Содержимое /etc/angie/angie.conf</summary>
+
+```
+   user  angie;
+worker_processes  auto;
+worker_rlimit_nofile 65536;
+
+error_log  /var/log/angie/error.log notice;
+pid        /run/angie.pid;
+
+load_module modules/ngx_http_zstd_filter_module.so;
+load_module modules/ngx_http_zstd_static_module.so;
+
+load_module modules/ngx_http_brotli_filter_module.so;
+load_module modules/ngx_http_brotli_static_module.so;
+
+events {
+    worker_connections  65536;
+}
+
+http {
+    include       /etc/angie/mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    log_format extended '$remote_addr - $remote_user [$time_local] "$request" '
+                        '$status $body_bytes_sent "$http_referer" rt="$request_time" '
+                        '"$http_user_agent" "$http_x_forwarded_for" '
+                        'h="$host" sn="$server_name" ru="$request_uri" u="$uri" '
+                        'ucs="$upstream_cache_status" ua="$upstream_addr" us="$upstream_status" '
+                        'uct="$upstream_connect_time" urt="$upstream_response_time"';
+
+    access_log  /var/log/angie/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    include /etc/angie/http.d/*.conf;
+}
+
+#stream {
+#    include /etc/angie/stream.d/*.conf;
+#}
+```
+
+</details>
 
 
 
+8. Редактирование файла конфигурации веб-сервера 
 
+/etc/angie/http.d/default.conf
+
+
+
+9. Проверка корректности конфигурации Angie и перезапуск Angie:
 
 
 
