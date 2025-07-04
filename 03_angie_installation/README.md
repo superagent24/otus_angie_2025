@@ -47,10 +47,10 @@ VMXNET 3 network adapter
 
 <details>
 
-<summary>Содержимое /etc/angie/angie.conf</summary>
+<summary>Содержимое angie.conf после редактирования</summary>
 
 ```
-   user  angie;
+user  angie;
 worker_processes  auto;
 worker_rlimit_nofile 65536;
 
@@ -101,11 +101,89 @@ http {
 
 </details>
 
+8. Редактирование файла конфигурации веб-сервера:
 
+   `sudo nano /etc/angie/http.d/default.conf`
 
-8. Редактирование файла конфигурации веб-сервера 
+<details>
 
-/etc/angie/http.d/default.conf
+<summary>Содержимое default.conf после редактирования</summary>
+
+```
+server {
+    listen       80;
+    server_name  daleedalee.ru www.daleedalee.ru localhost;
+
+    #access_log  /var/log/angie/host.access.log  main;
+
+    location / {
+        root   /usr/share/angie/html;
+        index  index.html index.htm;
+    }
+
+    location /status/ {
+        api     /status/;
+        allow   127.0.0.1;
+        deny    all;
+    }
+
+    location /console/ {
+        # define list of trusted hosts or networks
+        allow 127.0.0.1;
+        # allow 192.168.0.0/16;
+        # allow 10.0.0.0/8;
+        deny all;
+
+        auto_redirect on;
+
+        alias /usr/share/angie-console-light/html/;
+        index index.html;
+
+        location /console/api/ {
+            api /status/;
+        }
+
+        # uncomment below lines to enable writable API
+        # location /console/api/config/ {
+        #     api /config/;
+        # }
+    }
+
+    #error_page  404              /404.html;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/angie/html;
+    }
+
+    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+    #
+    #location ~ \.php$ {
+    #    proxy_pass   http://127.0.0.1;
+    #}
+
+    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+    #
+    #location ~ \.php$ {
+    #    root           html;
+    #    fastcgi_pass   127.0.0.1:9000;
+    #    fastcgi_index  index.php;
+    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+    #    include        fastcgi_params;
+    #}
+
+    # deny access to .htaccess files, if Apache's document root
+    # concurs with angie's one
+    #
+    #location ~ /\.ht {
+    #    deny  all;
+    #}
+}
+```
+
+</details>
 
 
 
