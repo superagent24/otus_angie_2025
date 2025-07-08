@@ -205,7 +205,7 @@ ${\textsf{\color{lightgreen}●}}$ angie.service - Angie - high performance web 
 
 <details>
 
-<summary>Результат выполнения команды curl localhost</summary>
+<summary>Вывод curl localhost</summary>
 
 ```
 <!DOCTYPE html>
@@ -240,7 +240,7 @@ working. Further configuration is required.</p>
 
 <details>
 
-<summary>Результат выполнения команды curl -L -I localhost/console</summary>
+<summary>Вывод curl -L -I localhost/console</summary>
 
 ```
 HTTP/1.1 301 Moved Permanently
@@ -266,7 +266,7 @@ Accept-Ranges: bytes
 
 <details>
 
-<summary>Результат выполнения команды curl -L -I localhost/console/api</summary>
+<summary>Вывод curl -L -I localhost/console/api</summary>
 
 ```
 HTTP/1.1 301 Moved Permanently
