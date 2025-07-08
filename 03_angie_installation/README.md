@@ -19,6 +19,7 @@ VMXNET 3 network adapter
 ### 01. Установка вспомогательных пакетов для подключения репозитория Angie:
    
    `sudo apt update && sudo apt upgrade`
+   
    `sudo apt-get install -y ca-certificates curl`
    
 ### 02. Скачивание открытого ключа репозитория Angie для проверки подлинности пакетов:
