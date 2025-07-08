@@ -14,34 +14,34 @@ VMXNET 3 network adapter
 
 # Установка Angie
 
-01. Установка вспомогательных пакетов для подключения репозитория Angie:
+### 01. Установка вспомогательных пакетов для подключения репозитория Angie:
    
    `sudo apt update && sudo apt upgrade
    sudo apt-get install -y ca-certificates curl`
    
-02. Скачивание открытого ключа репозитория Angie для проверки подлинности пакетов:
+### 02. Скачивание открытого ключа репозитория Angie для проверки подлинности пакетов:
    
    `sudo curl -o /etc/apt/trusted.gpg.d/angie-signing.gpg \
             https://angie.software/keys/angie-signing.gpg`
    
-03. Подключение репозитория Angie:
+### 03. Подключение репозитория Angie:
    
    `echo "deb https://download.angie.software/angie/$(. /etc/os-release && echo "$ID/$VERSION_ID $VERSION_CODENAME") main" \
     | sudo tee /etc/apt/sources.list.d/angie.list > /dev/null`
 
-04. Обновление индексов репозиториев:
+### 04. Обновление индексов репозиториев:
 
    `sudo apt update`
 
-05. Установка пакета Angie:
+### 05. Установка пакета Angie:
 
    `sudo apt install -y angie`
 
-06. Установка пакетов сторонних модулей Brotli и Zstandard, а также установка пакета Console Light:
+### 06. Установка пакетов сторонних модулей Brotli и Zstandard, а также установка пакета Console Light:
 
    `sudo apt install -y angie-module-brotli angie-module-zstd angie-console-light`
 
-07. Редактирование файла настроек Angie:
+### 07. Редактирование файла настроек Angie:
 
    `sudo nano /etc/angie/angie.conf`
 
@@ -101,7 +101,7 @@ http {
 
 </details>
 
-08. Редактирование файла конфигурации веб-сервера:
+### 08. Редактирование файла конфигурации веб-сервера:
 
    `sudo nano /etc/angie/http.d/default.conf`
 
@@ -185,11 +185,11 @@ server {
 
 </details>
 
-09. Проверка корректности конфигурации Angie и перезапуск Angie:
+### 09. Проверка корректности конфигурации Angie и перезапуск Angie:
 
    `sudo angie -t && sudo systemctl reload angie`
 
-10. Проверка корректности работы Angie:
+### 10. Проверка корректности работы Angie:
 
    `sudo systemctl status angie`
 
@@ -197,7 +197,7 @@ ${\textsf{\color{lightgreen}●}}$ angie.service - Angie - high performance web 
      Loaded: loaded (/lib/systemd/system/angie.service; ${\textsf{\color{lightgreen}enabled}}$; preset: ${\textsf{\color{lightgreen}enabled}}$)</br>
      Active: ${\textsf{\color{lightgreen}active (running)}}$ since Wed 2025-06-25 14:31:18 MSK; 1 week 2 days ago
 
-11. Проверка корректности работы Angie:
+### 11. Проверка корректности работы Angie:
 
    `curl localhost`
 
@@ -231,7 +231,7 @@ working. Further configuration is required.</p>
 
 </details>
 
-12. Проверка корректности работы пакета Console Light:
+### 12. Проверка корректности работы пакета Console Light:
 
    `curl -L -I localhost/console`
    `curl -L -I localhost/console/api`
