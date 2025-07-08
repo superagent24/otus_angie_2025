@@ -230,3 +230,59 @@ working. Further configuration is required.</p>
 ```
 
 </details>
+
+12. Проверка корректности работы пакета Console Light:
+
+   `curl -L -I localhost/console`
+   `curl -L -I localhost/console/api`
+
+<details>
+
+<summary>Результат выполнения команды curl -L -I localhost/console</summary>
+
+```
+HTTP/1.1 301 Moved Permanently
+Server: Angie/1.9.1
+Date: Tue, 08 Jul 2025 11:27:32 GMT
+Content-Type: text/html
+Content-Length: 168
+Location: http://localhost/console/
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Server: Angie/1.9.1
+Date: Tue, 08 Jul 2025 11:27:32 GMT
+Content-Type: text/html
+Content-Length: 421448
+Last-Modified: Mon, 07 Apr 2025 12:14:07 GMT
+Connection: keep-alive
+ETag: "67f3c18f-66e48"
+Accept-Ranges: bytes
+```
+
+</details>
+
+<details>
+
+<summary>Результат выполнения команды curl -L -I localhost/console/api</summary>
+
+```
+HTTP/1.1 301 Moved Permanently
+Server: Angie/1.9.1
+Date: Tue, 08 Jul 2025 11:31:12 GMT
+Content-Type: text/html
+Content-Length: 168
+Location: http://localhost/console/api/
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Server: Angie/1.9.1
+Date: Tue, 08 Jul 2025 11:31:12 GMT
+Content-Type: application/json
+Content-Length: 402
+Connection: keep-alive
+Expires: Thu, 01 Jan 1970 00:00:01 GMT
+Cache-Control: no-cache
+```
+
+</details>
