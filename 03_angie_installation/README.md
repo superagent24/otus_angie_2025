@@ -206,7 +206,7 @@ ${\textsf{\color{lightgreen}●}}$ angie.service - Angie - high performance web 
 
 <details>
 
-<summary>Вывод curl localhost</summary>
+<summary>Результат выполнения команды</summary>
 
 ```
 <!DOCTYPE html>
@@ -237,12 +237,10 @@ working. Further configuration is required.</p>
 ### 12. Проверка корректности работы пакета Console Light:
 
    `curl -L -I localhost/console`
-   
-   `curl -L -I localhost/console/api`
 
 <details>
 
-<summary>Вывод curl -L -I localhost/console</summary>
+<summary>Результат выполнения команды</summary>
 
 ```
 HTTP/1.1 301 Moved Permanently
@@ -265,10 +263,12 @@ Accept-Ranges: bytes
 ```
 
 </details>
+   
+   `curl -L -I localhost/console/api`
 
 <details>
 
-<summary>Вывод curl -L -I localhost/console/api</summary>
+<summary>Результат выполнения команды</summary>
 
 ```
 HTTP/1.1 301 Moved Permanently
