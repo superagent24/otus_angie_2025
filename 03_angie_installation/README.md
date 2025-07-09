@@ -25,12 +25,12 @@ VMXNET 3 network adapter
 ### 02. Скачивание открытого ключа репозитория Angie для проверки подлинности пакетов:
    
    `sudo curl -o /etc/apt/trusted.gpg.d/angie-signing.gpg \
-            https://angie.software/keys/angie-signing.gpg`
+   https://angie.software/keys/angie-signing.gpg`
    
 ### 03. Подключение репозитория Angie:
    
    `echo "deb https://download.angie.software/angie/$(. /etc/os-release && echo "$ID/$VERSION_ID $VERSION_CODENAME") main" \
-    | sudo tee /etc/apt/sources.list.d/angie.list > /dev/null`
+   | sudo tee /etc/apt/sources.list.d/angie.list > /dev/null`
 
 ### 04. Обновление индексов репозиториев:
 
@@ -282,23 +282,90 @@ Accept-Ranges: bytes
 
 ### 04. Запуск Docker образа Angie:
    
-   `sudo docker run -d --restart always --name angie -p 80:80 -v /var/www/html:/usr/share/angie/html docker.angie.software/angie:1.10.0-debian`
+   `sudo docker run -d --restart always --name angie -p 80:80 -v \
+   /var/www/html:/usr/share/angie/html docker.angie.software/angie:1.10.0-debian`
 
-Команда `run` запускает контейнер из образа, при этом, если образ отсутствует в системе, будет произведена его загрузка;
+> [!TIP]
+> 
+> Команда `run` запускает контейнер из образа, при этом, если образ отсутствует в системе, будет произведена его загрузка;
+>
+> Ключ `-d` означает, что контейнер будет запущен в фоновом режиме;
+>
+> Опция `--restart always` указывает на то, что контейнер должен автоматически перезапускаться в случае его остановки, если только он не был остановлен пользователем;
+>
+> `--name angie` означает, что создаваемый контейнер будет называться `angie`;
+>
+> Опция `-p 80:80` используется для проброса портов между контейнером и хост-системой, то есть порт 80 внутри контейнера будет привязан к порту 80 на хостовой системе;
+>
+> `-v /var/www/html:/usr/share/angie/html` означает, что каталог `/var/www/html` на хост-системе будет смонтирован к каталогу внутри контейнера `/usr/share/angie/html`;
+>
+> `docker.angie.software/angie:1.10.0-debian` – образ указанной версии Angie на основе Debian 12
 
-Ключ `-d` означает, что контейнер будет запущен в фоновом режиме;
+### 05. Вывод списка установленных Docker образов:
+   
+   `sudo docker images`
 
-Опция `--restart always` указывает на то, что контейнер должен автоматически перезапускаться в случае его остановки, если только он не был остановлен пользователем;
+<details>
 
-`--name angie` означает, что создаваемый контейнер будет называться `angie`;
+<summary>Результат выполнения команды</summary>
 
-Опция `-p 80:80` используется для проброса портов между контейнером и хост-системой, то есть порт 80 внутри контейнера будет привязан к порту 80 на хостовой системе;
+```
+wwwwwwwwwww
+```
 
-`-v /var/www/html:/usr/share/angie/html` означает, что каталог `/var/www/html` на хост-системе будет смонтирован к каталогу внутри контейнера `/usr/share/angie/html`;
+</details>
 
-`docker.angie.software/angie:1.10.0-debian` – образ указанной версии Angie на основе Debian 12
+### 06. Вывод списка запущенных контейнеров Docker:
+   
+   `sudo docker ps`
 
+<details>
 
+<summary>Результат выполнения команды</summary>
+
+```
+wwwwwwwwwww
+```
+
+</details>
+
+### 07. Создание файла index.html в папке /var/www/html/ :
+
+   `sudo nano /var/www/html/index.html`
+
+<details>
+
+<summary>Содержимое файла index.html</summary>
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to Angie!</title>
+</head>
+<body>
+<h1>Welcome to Angie!</h1>
+<p>If you see this page, the Angie web server is successfully installed and
+working. Further configuration is required.</p>
+</body>
+</html>
+```
+
+</details>
+
+### 08. Проверка корректности работы Angie:
+   
+   `curl -I localhost`
+
+<details>
+
+<summary>Результат выполнения команды</summary>
+
+```
+wwwwwwwwwww
+```
+
+</details>
 
 
 
