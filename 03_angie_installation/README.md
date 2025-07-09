@@ -14,11 +14,11 @@
 
 VMXNET 3 network adapter
 
-## Установка Angie
+## Пакетная установка Angie под Debian 12
 
 ### 01. Установка вспомогательных пакетов для подключения репозитория Angie:
    
-   `sudo apt update && sudo apt upgrade`
+   `sudo apt update -y && sudo apt upgrade -y`
    
    `sudo apt-get install -y ca-certificates curl`
    
@@ -263,40 +263,38 @@ Accept-Ranges: bytes
 ```
 
 </details>
+
+## Установка Angie из Docker образа на основе Debian 12
+
+### 01. Установка Docker и пакета cURL:
    
-   `curl -L -I localhost/console/api`
+   `sudo apt update -y && sudo apt upgrade -y`
+   
+   `sudo apt install -y docker.io curl`
 
-<details>
+### 02. Добавление службы Docker в автоматический запуск при загрузке системы:
+   
+   `sudo systemctl enable docker`
 
-<summary>Результат выполнения команды</summary>
+### 03. Просмотр состояния службы Docker:
+   
+   `sudo systemctl status docker`
 
-```
-HTTP/1.1 301 Moved Permanently
-Server: Angie/1.9.1
-Date: Tue, 08 Jul 2025 11:31:12 GMT
-Content-Type: text/html
-Content-Length: 168
-Location: http://localhost/console/api/
-Connection: keep-alive
+### 04. Запуск Docker образа Angie:
+   
+   `sudo docker run -d --restart always --name angie -p 80:80 -v /var/www/html:/usr/share/angie/html docker.angie.software/angie:1.10.0-debian`
 
-HTTP/1.1 200 OK
-Server: Angie/1.9.1
-Date: Tue, 08 Jul 2025 11:31:12 GMT
-Content-Type: application/json
-Content-Length: 402
-Connection: keep-alive
-Expires: Thu, 01 Jan 1970 00:00:01 GMT
-Cache-Control: no-cache
-```
-
-</details>
+Команда `run` запускает контейнер из образа, при этом, если образ отсутствует в системе, будет произведена его загрузка;
+Ключ `-d` означает, что контейнер будет запущен в фоновом режиме;
+Опция `--restart always` указывает на то, что контейнер должен автоматически перезапускаться в случае его остановки, если только он не был остановлен пользователем;
+`--name angie` означает, что создаваемый контейнер будет называться `angie`;
+Опция `-p 80:80` используется для проброса портов между контейнером и хост-системой, то есть порт 80 внутри контейнера будет привязан к порту 80 на хостовой системе;
+`-v /var/www/html:/usr/share/angie/html` означает, что каталог `/var/www/html` на хост-системе будет смонтирован к каталогу внутри контейнера `/usr/share/angie/html`;
+`docker.angie.software/angie:1.10.0-debian` – образ указанной версии Angie на основе Debian 12
 
 
 
 
-
-> [!TIP]
-> Helpful advice for doing things better or more easily.
 
 
 
