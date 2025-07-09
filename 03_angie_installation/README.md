@@ -237,6 +237,7 @@ working. Further configuration is required.</p>
 ### 12. Проверка корректности работы пакета Console Light:
 
    `curl -L -I localhost/console`
+   
    `curl -L -I localhost/console/api`
 
 <details>
